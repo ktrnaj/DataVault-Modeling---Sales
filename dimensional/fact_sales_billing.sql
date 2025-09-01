@@ -1,0 +1,20 @@
+CREATE TABLE reporting_layer.FACT_SALES_BILLING (
+    sales_billing_pk INT IDENTITY(1,1) PRIMARY KEY,
+    date_key INT NOT NULL,
+    material_key INT NOT NULL,
+    customer_key INT NOT NULL,
+    sales_org_key INT NOT NULL,
+    dist_channel_key INT NOT NULL,
+    sales_group_key INT NOT NULL,
+    sales_document VARCHAR(50),
+    quantity DECIMAL(18, 3),
+    tgs DECIMAL(18, 3),
+    tns DECIMAL(18, 3),
+    load_dts TIMESTAMP,
+    FOREIGN KEY (date_key) REFERENCES reporting_layer.DIM_DATE(date_key),
+    FOREIGN KEY (material_key) REFERENCES reporting_layer.DIM_MATERIAL(material_key),
+    FOREIGN KEY (customer_key) REFERENCES reporting_layer.DIM_CUSTOMER(customer_key),
+    FOREIGN KEY (sales_org_key) REFERENCES reporting_layer.DIM_SALES_ORG(sales_org_key),
+    FOREIGN KEY (dist_channel_key) REFERENCES reporting_layer.DIM_DISTRIBUTION_CHANNEL(dist_channel_key),
+    FOREIGN KEY (sales_group_key) REFERENCES reporting_layer.DIM_SALES_GROUP(sales_group_key)
+);
