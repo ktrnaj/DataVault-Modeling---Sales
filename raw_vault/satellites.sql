@@ -1,0 +1,10 @@
+CREATE TABLE SAT_SALES_FACTS (
+    SALES_TXN_HK    STRING,
+    BUDAT           DATE,
+    SALES_GROUP     STRING,
+    QUANTITY        NUMERIC,
+    TGS             NUMERIC,
+    TNS             NUMERIC,
+    LOAD_DATE       TIMESTAMP,
+    RECORD_SOURCE   STRING
+);
